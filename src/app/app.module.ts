@@ -7,6 +7,9 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { DevisComponent } from './devis/devis.component';
 
+//services
+import {DevisService} from './services/devis.service';
+
 
 const CONFIG: FirebaseAppConfig = {
   apiKey: "AIzaSyCgbXYniMNTqKBerXSu1M3LCy8BAyQbGSk",
@@ -28,7 +31,9 @@ const CONFIG: FirebaseAppConfig = {
     AngularFireModule.initializeApp(CONFIG),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    DevisService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import {AngularFireDatabase} from 'angularfire2/database';
+import {DevisService} from '../services/devis.service';
 
 @Component({
   selector: 'app-devis',
@@ -9,11 +8,11 @@ import {AngularFireDatabase} from 'angularfire2/database';
 })
 export class DevisComponent implements OnInit {
   devis$;
-  
-  constructor(private afDb: AngularFireDatabase) { }
+
+  constructor(private devisService: DevisService) { }
 
   ngOnInit() {
-    this.devis$ = this.afDb.list('devis').valueChanges();
+    this.devis$ = this.devisService.getDevis();
   }
 
 }
