@@ -1,3 +1,3 @@
-<p>
-  devis works!
-</p>
+<ul>
+  <li *ngFor="let devis of devis$ | async">{{ devis.devis}}</li>
+</ul>
