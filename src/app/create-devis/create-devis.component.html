@@ -1,0 +1,13 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="createDevis()">
+    <input type="text" formControlName="firstname" placeholder="Prénom">
+    <input type="text" formControlName="lastname" placeholder="Nom">
+    <input type="text" formControlName="devis" placeholder="Devis">
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+
+<div>
+  {{ form.value | json }}
+</div>

@@ -7,8 +7,11 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { DevisComponent } from './devis/devis.component';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 //services
 import {DevisService} from './services/devis.service';
+import { CreateDevisComponent } from './create-devis/create-devis.component';
 
 
 const CONFIG: FirebaseAppConfig = {
@@ -24,12 +27,15 @@ const CONFIG: FirebaseAppConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    DevisComponent
+    DevisComponent,
+    CreateDevisComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(CONFIG),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DevisService
