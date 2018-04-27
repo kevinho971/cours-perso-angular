@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
@@ -8,6 +8,8 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class CreateDevisComponent implements OnInit {
   form: FormGroup;
+  @Output()
+  create = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -22,7 +24,7 @@ export class CreateDevisComponent implements OnInit {
   createDevis(){
     console.log('form valid', this.form.valid);
     if (this.form.valid){
-
+      this.create.emit(this.form);
     }
   }
 

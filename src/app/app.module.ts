@@ -9,9 +9,13 @@ import { DevisComponent } from './devis/devis.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-//services
+import  {RouterModule, Routes } from '@angular/router';
+
 import {DevisService} from './services/devis.service';
 import { CreateDevisComponent } from './create-devis/create-devis.component';
+import { DevisDetailsComponent } from './devis-details/devis-details.component';
+import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
+import { BackendDevisComponent } from './backend/backend-devis/backend-devis.component';
 
 
 const CONFIG: FirebaseAppConfig = {
@@ -23,19 +27,28 @@ const CONFIG: FirebaseAppConfig = {
   messagingSenderId: "172311920418"
 };
 
+const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', component: DevisComponent },
+  { path: 'devis/:id', component: DevisDetailsComponent },
+  { path: 'admin', component: BackendHomeComponent }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     DevisComponent,
     CreateDevisComponent,
+    DevisDetailsComponent,
+    BackendHomeComponent,
+    BackendDevisComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(CONFIG),
     AngularFireDatabaseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     DevisService
