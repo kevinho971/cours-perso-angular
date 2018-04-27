@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { DevisService } from '../../services/devis.service';
+import { Devis } from '../../../devis.interface';
 
 @Component({
   selector: 'app-create-devis',
@@ -26,9 +27,9 @@ export class CreateDevisComponent implements OnInit {
 
     this.devisService.subject.subscribe(data => {
       console.log('data', data);
-      this.form.get('firstname').patchValue(data.firstname);
-      this.form.get('lastname').patchValue(data.lastname);
-      this.form.get('devis').patchValue(data.devis);
+      this.form.get('firstname').patchValue((data as Devis).firstname);
+      this.form.get('lastname').patchValue((data as Devis).lastname);
+      this.form.get('devis').patchValue((data as Devis).devis);
     })
   }
 
