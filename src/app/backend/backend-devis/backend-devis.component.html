@@ -1,5 +1,6 @@
 <ul>
   <li *ngFor="let devis of devis$ | async" (click)="showDevisDetails(devis)">
+    <button (click)="toggleToEditMode(devis)">Modifier</button>
     <button (click)="deleteDevis(devis)">Supprimer</button>
     {{ devis.devis}}
   </li>

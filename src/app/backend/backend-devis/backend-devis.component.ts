@@ -24,4 +24,8 @@ export class BackendDevisComponent implements OnInit {
 
   }
 
+  toggleToEditMode(devis){
+    this.devisService.editDevis(devis);
+  }
+
 }

@@ -20,6 +20,11 @@ export class BackendHomeComponent implements OnInit {
     console.log('addedDevis', addedDevis);
   }
 
+  onDevisUpdated(devis){
+    console.log('devis depuis la méthode onDevisUpdated()', devis);
+    this.devisService.updateDevis({firstname: devis.value.firstname, lastname: devis.value.lastname, devis: devis.value.devis, key: devis.value.key});
+  }
+
   ngOnInit() {
   }
 

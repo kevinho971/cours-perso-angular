@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import {AngularFireDatabase} from 'angularfire2/database';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class DevisService {
+  subject = new Subject();
 
-  constructor(private afDb: AngularFireDatabase) { }
+  constructor(private afDb: AngularFireDatabase ) { }
 
   getDevis(){
     // return this.afDb.list('devis').valueChanges();
@@ -19,5 +21,15 @@ export class DevisService {
   deleteDevisById(id: string){
     return this.afDb.list('devis').remove(id);
   }
+
+  editDevis(devis){
+    this.subject.next(devis);
+  }
+
+  updateDevis(devis){
+    return this.afDb.object('devis/${devis.key}').update(devis);
+  }
+
+
 
 }

@@ -12,7 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import  {RouterModule, Routes } from '@angular/router';
 
 import {DevisService} from './services/devis.service';
-import { CreateDevisComponent } from './create-devis/create-devis.component';
+import { CreateDevisComponent } from './backend/create-devis/create-devis.component';
 import { DevisDetailsComponent } from './devis-details/devis-details.component';
 import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
 import { BackendDevisComponent } from './backend/backend-devis/backend-devis.component';
