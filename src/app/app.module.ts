@@ -16,6 +16,7 @@ import { CreateDevisComponent } from './backend/create-devis/create-devis.compon
 import { DevisDetailsComponent } from './devis-details/devis-details.component';
 import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
 import { BackendDevisComponent } from './backend/backend-devis/backend-devis.component';
+import { RegisterUserComponent } from './authentification/register-user/register-user.component';
 
 
 const CONFIG: FirebaseAppConfig = {
@@ -41,6 +42,7 @@ const ROUTES: Routes = [
     DevisDetailsComponent,
     BackendHomeComponent,
     BackendDevisComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
