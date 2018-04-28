@@ -1,9 +1,10 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="createDevis()">
+  <form [formGroup]="form" (ngSubmit)="saveDevis()">
     <input type="text" formControlName="firstname" placeholder="Prénom">
     <input type="text" formControlName="lastname" placeholder="Nom">
     <input type="text" formControlName="devis" placeholder="Devis">
-    <button type="submit">Envoyer</button>
+    <button>{{ verb }} le devis</button>
+    <button (click)="cancelEdit()" *ngIf="isInEditMode">Annuler la modification</button>
   </form>
 </div>
 

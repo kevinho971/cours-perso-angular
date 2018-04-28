@@ -28,4 +28,6 @@ export class BackendDevisComponent implements OnInit {
     this.devisService.editDevis(devis);
   }
 
+
+
 }

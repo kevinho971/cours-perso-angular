@@ -26,8 +26,9 @@ export class DevisService {
     this.subject.next(devis);
   }
 
-  updateDevis(devis){
-    return this.afDb.object('devis/${devis.key}').update(devis);
+  updateDevis(devis) {
+    console.log('updateDevis', devis, `devis/${devis.key}`);
+    return this.afDb.object(`devis/${devis.key}`).update(devis);
   }
 
 
