@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="isAdmin">
   <form [formGroup]="form" (ngSubmit)="saveDevis()" *ngIf="active">
     <mat-form-field>
       <input matInput type="text" formControlName="firstname" placeholder="Prénom">
@@ -14,6 +14,7 @@
   </form>
 </div>
 
+<div *ngIf="isAdmin">Veiillez vous connecter avec un compte autorisé</div>
 
 <div>
   {{ form.value | json }}

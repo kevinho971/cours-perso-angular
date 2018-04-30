@@ -16,8 +16,12 @@
 
 <div>
   <form #login="ngForm" (ngSubmit)="loginUser()" *ngIf="!(authService.user$ | async)">
-    <input matInput type="text" name="email" placeholder="email" [(ngModel)]="existingUser.email">
-    <input matInput type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
+    <mat-form-field>
+      <input matInput type="text" name="email" placeholder="email" [(ngModel)]="existingUser.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
+    </mat-form-field>
     <button mat-raised-button type="submit" color="primary">Se connecter</button>
   </form>
 </div>

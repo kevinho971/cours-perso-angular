@@ -1,9 +1,11 @@
-<ul>
-  <div *ngFor="let devis of devis$ | async" (click)="showDevisDetails(devis)">
-    <mat-card>
-      {{ devis.devis}}
-      <button mat-raised-button (click)="deleteDevis(devis)">Supprimer</button>
-      <button mat-raised-button (click)="toggleToEditMode(devis)">Modifier</button>
-    </mat-card>
-  </div>
-</ul>
+<div *ngIf="isAdmin">
+  <ul>
+    <div *ngFor="let devis of devis$ | async" (click)="showDevisDetails(devis)">
+      <mat-card>
+        {{ devis.devis}}
+        <button mat-raised-button (click)="deleteDevis(devis)">Supprimer</button>
+        <button mat-raised-button (click)="toggleToEditMode(devis)">Modifier</button>
+      </mat-card>
+    </div>
+  </ul>
+</div>

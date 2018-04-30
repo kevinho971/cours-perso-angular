@@ -23,13 +23,14 @@ export class AuthService {
     this.angularfireAuth.auth.signOut();
   }
 
-  sendEmailVerification(){
+  sendEmailVerification() {
     const user = firebase.auth().currentUser;
-    if(user) {
+    if (user) {
       console.log('user in sendEmailVerification', user);
       user.sendEmailVerification().then(() => {
         console.log('email envoyé');
       }).catch((error) => {
         console.error('error sending email', error);
       });
+    }
   }

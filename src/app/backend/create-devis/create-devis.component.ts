@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { DevisService } from '../../services/devis.service';
 import { Devis } from '../../../devis.interface';
+import { AuthService } from '../../authentification/services/auth.service';
 
 @Component({
   selector: 'app-create-devis',
@@ -20,7 +21,9 @@ export class CreateDevisComponent implements OnInit {
   isInEditMode = false;
   verb = 'Ajouter';
 
-  constructor(private formBuilder: FormBuilder, private  devisService: DevisService) { }
+  isAdmin: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private  devisService: DevisService, private authService: AuthService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -38,6 +41,15 @@ export class CreateDevisComponent implements OnInit {
       this.form.get('lastname').patchValue((data as Devis).lastname);
       this.form.get('devis').patchValue((data as Devis).devis);
       this.form.get('key').patchValue((data as Devis).key);
+    })
+
+    this.authService.user$.subscribe(user => {
+      console.log('user: ', user);
+      if (user && user.email === 'test@test.fr'){
+        this.isAdmin = true;
+      }else{
+        this.isAdmin = false;
+      }
     })
   }
 
