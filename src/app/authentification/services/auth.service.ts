@@ -33,5 +33,3 @@ export class AuthService {
         console.error('error sending email', error);
       });
   }
-
-}

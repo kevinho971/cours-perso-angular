@@ -1,10 +1,16 @@
 <div>
   <form [formGroup]="form" (ngSubmit)="saveDevis()">
-    <input type="text" formControlName="firstname" placeholder="Prénom">
-    <input type="text" formControlName="lastname" placeholder="Nom">
-    <input type="text" formControlName="devis" placeholder="Devis">
-    <button>{{ verb }} le devis</button>
-    <button (click)="cancelEdit()" *ngIf="isInEditMode">Annuler la modification</button>
+    <mat-form-field>
+      <input matInput type="text" formControlName="firstname" placeholder="Prénom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="lastname" placeholder="Nom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="devis" placeholder="Devis">
+    </mat-form-field>
+    <button mat-raised-button>{{ verb }} le devis</button>
+    <button mat-raised-button (click)="cancelEdit()" *ngIf="isInEditMode">Annuler la modification</button>
   </form>
 </div>
 

@@ -1,3 +1,10 @@
+<mat-toolbar color="primary">
+  <h1>Front</h1>
+</mat-toolbar>
 <ul>
-  <li *ngFor="let devis of devis$ | async" (click)="showDevisDetails(devis)">{{ devis.devis}}</li>
+  <div *ngFor="let devis of devis$ | async" (click)="showDevisDetails(devis)">
+    <mat-card>
+      {{ devis.devis}}
+    </mat-card>
+  </div>
 </ul>

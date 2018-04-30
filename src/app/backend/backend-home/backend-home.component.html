@@ -1,8 +1,12 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <h2>Administration</h2>
 </mat-toolbar>
-<hr>
-<app-register-user></app-register-user>
-<br>
-<app-create-devis (create)="onDevisCreated($event)" (update)="onDevisUpdated($event)"></app-create-devis>
-<app-backend-devis></app-backend-devis>
+<mat-tab-group>
+  <mat-tab label="Connexion">
+    <app-register-user></app-register-user>
+  </mat-tab>
+  <mat-tab label="citation">
+    <app-create-devis (create)="onDevisCreated($event)" (update)="onDevisUpdated($event)"></app-create-devis>
+    <app-backend-devis></app-backend-devis>
+  </mat-tab>
+</mat-tab-group>
