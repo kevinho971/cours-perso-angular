@@ -9,6 +9,7 @@ import { Devis } from '../../../devis.interface';
   styleUrls: ['./create-devis.component.css']
 })
 export class CreateDevisComponent implements OnInit {
+  private active: boolean = true;
   form: FormGroup;
   @Output()
   create = new EventEmitter();
@@ -55,6 +56,8 @@ export class CreateDevisComponent implements OnInit {
       this.isInEditMode = !this.isInEditMode;
     }
     this.form.reset();
+    this.active = false;
+    setTimeout(() => this.active = true, 0);
     this.verb = 'ajouter';
   }
 

@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="saveDevis()">
+  <form [formGroup]="form" (ngSubmit)="saveDevis()" *ngIf="active">
     <mat-form-field>
       <input matInput type="text" formControlName="firstname" placeholder="Prénom">
     </mat-form-field>
