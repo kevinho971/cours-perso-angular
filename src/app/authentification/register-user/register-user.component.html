@@ -24,6 +24,8 @@
     </mat-form-field>
     <button mat-raised-button type="submit" color="primary">Se connecter</button>
   </form>
+  <button mat-raised-button (click)="loginGoogle()">Google</button>
+  <button mat-raised-button (click)="loginFacebook()">Facebook</button>
 </div>
 
 <div *ngIf="authService.user$ | async ">

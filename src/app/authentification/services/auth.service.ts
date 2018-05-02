@@ -7,19 +7,32 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
+  provider: firebase.auth.GoogleAuthProvider;
+  facebook: firebase.auth.FacebookAuthProvider;
+
   constructor(private angularfireAuth: AngularFireAuth, private afDb: AngularFireDatabase) {
     this.user$ = angularfireAuth.authState;
+    this.provider = new firebase.auth.GoogleAuthProvider();
+    this.facebook = new firebase.auth.FacebookAuthProvider();
   }
 
-  register(email: string, password: string){
+  register(email: string, password: string) {
     return this.angularfireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  login(email: string, password: string){
+  login(email: string, password: string) {
     return this.angularfireAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  logout(){
+  loginWithGoogle() {
+    return this.angularfireAuth.auth.signInWithPopup(this.provider);
+  }
+
+  loginWithFacebook(){
+    return this.angularfireAuth.auth.signInWithPopup(this.facebook);
+  }
+
+  logout() {
     this.angularfireAuth.auth.signOut();
   }
 
@@ -34,3 +47,4 @@ export class AuthService {
       });
     }
   }
+}

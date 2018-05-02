@@ -38,4 +38,14 @@ export class RegisterUserComponent implements OnInit {
     this.authService.logout();
   }
 
+  loginGoogle(){
+    this.authService.loginWithGoogle();
+  }
+
+  loginFacebook(){
+    this.authService.loginWithFacebook();
+  }
+
+
+
 }
